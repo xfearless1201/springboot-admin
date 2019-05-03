@@ -1,0 +1,41 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 10
+      max-active: 100
+      min-idle: 10
+      max-wait: 60000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      validationQuery: SELECT 'x'
+      public-key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKqSCvTnIcLJrQdFluFqAz3f7lAHOML+wdLjoSZPLZD43xqjhdY/SBiKzpiRVUMIEAvR/Ijokwj2D5fTkhdyvTECAwEAAQ==
+      connectionProperties :config.decrypt=true;config.decrypt.key=MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKqSCvTnIcLJrQdFluFqAz3f7lAHOML+wdLjoSZPLZD43xqjhdY/SBiKzpiRVUMIEAvR/Ijokwj2D5fTkhdyvTECAwEAAQ==
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 1000
+          merge-sql: false
+        wall:
+          config:
+            multi-statement-allow: true
+
+
+##多数据源的配置
+dynamic:
+  datasource:
+    txdata:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://192.168.0.2:3306/txdata_db1?useUnicode=true&characterEncoding=utf8&useSSL=true&allowMultiQueries=true
+      username: root
+      password: M4ksVLpjrfRvfL1dYdataATFvRSMnMHbXSoPCHTaBRh1ouSqc03w6N/QhkZJ7V8Lfg2wgimEVpExN26OnexI7A==
+    ftpdata:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://192.168.0.2:3306/ftpdata_xmldb?useUnicode=true&characterEncoding=utf8&useSSL=true&allowMultiQueries=true
+      username: root
+      password: M4ksVLpjrfRvfL1dYdataATFvRSMnMHbXSoPCHTaBRh1ouSqc03w6N/QhkZJ7V8Lfg2wgimEVpExN26OnexI7A==

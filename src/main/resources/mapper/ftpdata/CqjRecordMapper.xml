@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.tianxia.admin.domain.ftpdata.CqjRecordMapper">
+  <resultMap id="BaseResultMap" type="com.cn.tianxia.admin.project.ftpdata.CqjRecord">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="cagent" jdbcType="VARCHAR" property="cagent" />
+    <result column="gamecode" jdbcType="VARCHAR" property="gamecode" />
+    <result column="gametype" jdbcType="VARCHAR" property="gametype" />
+    <result column="gameplat" jdbcType="VARCHAR" property="gameplat" />
+    <result column="account" jdbcType="VARCHAR" property="account" />
+    <result column="round" jdbcType="VARCHAR" property="round" />
+    <result column="bet" jdbcType="REAL" property="bet" />
+    <result column="win" jdbcType="REAL" property="win" />
+    <result column="jackpot" jdbcType="REAL" property="jackpot" />
+    <result column="jackpottype" jdbcType="VARCHAR" property="jackpottype" />
+    <result column="winpc" jdbcType="REAL" property="winpc" />
+    <result column="balance" jdbcType="REAL" property="balance" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="bettime" jdbcType="TIMESTAMP" property="bettime" />
+    <result column="endroundtime" jdbcType="TIMESTAMP" property="endroundtime" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="rake" jdbcType="REAL" property="rake" />
+    <result column="gamerole" jdbcType="VARCHAR" property="gamerole" />
+    <result column="bankertype" jdbcType="VARCHAR" property="bankertype" />
+    <result column="jackpotcontribution" jdbcType="VARCHAR" property="jackpotcontribution" />
+    <result column="detail" jdbcType="VARCHAR" property="detail" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, cagent, gamecode, gametype, gameplat, account, round, bet, win, jackpot, jackpottype, 
+    winpc, balance, status, bettime, endroundtime, createtime, rake, gamerole, bankertype, 
+    jackpotcontribution, detail
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cqj_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from cqj_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cn.tianxia.admin.project.ftpdata.CqjRecord">
+    insert into cqj_record (id, cagent, gamecode, 
+      gametype, gameplat, account, 
+      round, bet, win, jackpot, 
+      jackpottype, winpc, balance, 
+      status, bettime, endroundtime, 
+      createtime, rake, gamerole, 
+      bankertype, jackpotcontribution, detail
+      )
+    values (#{id,jdbcType=INTEGER}, #{cagent,jdbcType=VARCHAR}, #{gamecode,jdbcType=VARCHAR}, 
+      #{gametype,jdbcType=VARCHAR}, #{gameplat,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR}, 
+      #{round,jdbcType=VARCHAR}, #{bet,jdbcType=REAL}, #{win,jdbcType=REAL}, #{jackpot,jdbcType=REAL}, 
+      #{jackpottype,jdbcType=VARCHAR}, #{winpc,jdbcType=REAL}, #{balance,jdbcType=REAL}, 
+      #{status,jdbcType=VARCHAR}, #{bettime,jdbcType=TIMESTAMP}, #{endroundtime,jdbcType=TIMESTAMP}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{rake,jdbcType=REAL}, #{gamerole,jdbcType=VARCHAR}, 
+      #{bankertype,jdbcType=VARCHAR}, #{jackpotcontribution,jdbcType=VARCHAR}, #{detail,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cn.tianxia.admin.project.ftpdata.CqjRecord">
+    insert into cqj_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="cagent != null">
+        cagent,
+      </if>
+      <if test="gamecode != null">
+        gamecode,
+      </if>
+      <if test="gametype != null">
+        gametype,
+      </if>
+      <if test="gameplat != null">
+        gameplat,
+      </if>
+      <if test="account != null">
+        account,
+      </if>
+      <if test="round != null">
+        round,
+      </if>
+      <if test="bet != null">
+        bet,
+      </if>
+      <if test="win != null">
+        win,
+      </if>
+      <if test="jackpot != null">
+        jackpot,
+      </if>
+      <if test="jackpottype != null">
+        jackpottype,
+      </if>
+      <if test="winpc != null">
+        winpc,
+      </if>
+      <if test="balance != null">
+        balance,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="bettime != null">
+        bettime,
+      </if>
+      <if test="endroundtime != null">
+        endroundtime,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="rake != null">
+        rake,
+      </if>
+      <if test="gamerole != null">
+        gamerole,
+      </if>
+      <if test="bankertype != null">
+        bankertype,
+      </if>
+      <if test="jackpotcontribution != null">
+        jackpotcontribution,
+      </if>
+      <if test="detail != null">
+        detail,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="cagent != null">
+        #{cagent,jdbcType=VARCHAR},
+      </if>
+      <if test="gamecode != null">
+        #{gamecode,jdbcType=VARCHAR},
+      </if>
+      <if test="gametype != null">
+        #{gametype,jdbcType=VARCHAR},
+      </if>
+      <if test="gameplat != null">
+        #{gameplat,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="round != null">
+        #{round,jdbcType=VARCHAR},
+      </if>
+      <if test="bet != null">
+        #{bet,jdbcType=REAL},
+      </if>
+      <if test="win != null">
+        #{win,jdbcType=REAL},
+      </if>
+      <if test="jackpot != null">
+        #{jackpot,jdbcType=REAL},
+      </if>
+      <if test="jackpottype != null">
+        #{jackpottype,jdbcType=VARCHAR},
+      </if>
+      <if test="winpc != null">
+        #{winpc,jdbcType=REAL},
+      </if>
+      <if test="balance != null">
+        #{balance,jdbcType=REAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="bettime != null">
+        #{bettime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endroundtime != null">
+        #{endroundtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rake != null">
+        #{rake,jdbcType=REAL},
+      </if>
+      <if test="gamerole != null">
+        #{gamerole,jdbcType=VARCHAR},
+      </if>
+      <if test="bankertype != null">
+        #{bankertype,jdbcType=VARCHAR},
+      </if>
+      <if test="jackpotcontribution != null">
+        #{jackpotcontribution,jdbcType=VARCHAR},
+      </if>
+      <if test="detail != null">
+        #{detail,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cn.tianxia.admin.project.ftpdata.CqjRecord">
+    update cqj_record
+    <set>
+      <if test="cagent != null">
+        cagent = #{cagent,jdbcType=VARCHAR},
+      </if>
+      <if test="gamecode != null">
+        gamecode = #{gamecode,jdbcType=VARCHAR},
+      </if>
+      <if test="gametype != null">
+        gametype = #{gametype,jdbcType=VARCHAR},
+      </if>
+      <if test="gameplat != null">
+        gameplat = #{gameplat,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null">
+        account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="round != null">
+        round = #{round,jdbcType=VARCHAR},
+      </if>
+      <if test="bet != null">
+        bet = #{bet,jdbcType=REAL},
+      </if>
+      <if test="win != null">
+        win = #{win,jdbcType=REAL},
+      </if>
+      <if test="jackpot != null">
+        jackpot = #{jackpot,jdbcType=REAL},
+      </if>
+      <if test="jackpottype != null">
+        jackpottype = #{jackpottype,jdbcType=VARCHAR},
+      </if>
+      <if test="winpc != null">
+        winpc = #{winpc,jdbcType=REAL},
+      </if>
+      <if test="balance != null">
+        balance = #{balance,jdbcType=REAL},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="bettime != null">
+        bettime = #{bettime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endroundtime != null">
+        endroundtime = #{endroundtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rake != null">
+        rake = #{rake,jdbcType=REAL},
+      </if>
+      <if test="gamerole != null">
+        gamerole = #{gamerole,jdbcType=VARCHAR},
+      </if>
+      <if test="bankertype != null">
+        bankertype = #{bankertype,jdbcType=VARCHAR},
+      </if>
+      <if test="jackpotcontribution != null">
+        jackpotcontribution = #{jackpotcontribution,jdbcType=VARCHAR},
+      </if>
+      <if test="detail != null">
+        detail = #{detail,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cn.tianxia.admin.project.ftpdata.CqjRecord">
+    update cqj_record
+    set cagent = #{cagent,jdbcType=VARCHAR},
+      gamecode = #{gamecode,jdbcType=VARCHAR},
+      gametype = #{gametype,jdbcType=VARCHAR},
+      gameplat = #{gameplat,jdbcType=VARCHAR},
+      account = #{account,jdbcType=VARCHAR},
+      round = #{round,jdbcType=VARCHAR},
+      bet = #{bet,jdbcType=REAL},
+      win = #{win,jdbcType=REAL},
+      jackpot = #{jackpot,jdbcType=REAL},
+      jackpottype = #{jackpottype,jdbcType=VARCHAR},
+      winpc = #{winpc,jdbcType=REAL},
+      balance = #{balance,jdbcType=REAL},
+      status = #{status,jdbcType=VARCHAR},
+      bettime = #{bettime,jdbcType=TIMESTAMP},
+      endroundtime = #{endroundtime,jdbcType=TIMESTAMP},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      rake = #{rake,jdbcType=REAL},
+      gamerole = #{gamerole,jdbcType=VARCHAR},
+      bankertype = #{bankertype,jdbcType=VARCHAR},
+      jackpotcontribution = #{jackpotcontribution,jdbcType=VARCHAR},
+      detail = #{detail,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.tianxia.admin.domain.txdata.ActivityMapper" >
+  <resultMap id="BaseResultMap" type="com.cn.tianxia.admin.project.txdata.Activity" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="cagent" property="cagent" jdbcType="VARCHAR" />
+    <result column="cid" property="cid" jdbcType="INTEGER" />
+    <result column="type_id" property="typeId" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="TINYINT" />
+    <result column="status" property="status" jdbcType="BIT" />
+    <result column="ruid" property="ruid" jdbcType="VARCHAR" />
+    <result column="stime" property="stime" jdbcType="BIGINT" />
+    <result column="etime" property="etime" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="BIGINT" />
+    <result column="update_time" property="updateTime" jdbcType="BIGINT" />
+    <result column="cuid" property="cuid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, cagent, cid, type_id, name, type, status, ruid, stime, etime, create_time, update_time, 
+    cuid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_activity
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_activity
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.cn.tianxia.admin.project.txdata.Activity" >
+    insert into t_activity (id, cagent, cid, 
+      type_id, name, type, 
+      status, ruid, stime, etime, 
+      create_time, update_time, cuid
+      )
+    values (#{id,jdbcType=BIGINT}, #{cagent,jdbcType=VARCHAR}, #{cid,jdbcType=INTEGER}, 
+      #{typeId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=TINYINT}, 
+      #{status,jdbcType=BIT}, #{ruid,jdbcType=VARCHAR}, #{stime,jdbcType=BIGINT}, #{etime,jdbcType=BIGINT}, 
+      #{createTime,jdbcType=BIGINT}, #{updateTime,jdbcType=BIGINT}, #{cuid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cn.tianxia.admin.project.txdata.Activity" >
+    insert into t_activity
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="cagent != null" >
+        cagent,
+      </if>
+      <if test="cid != null" >
+        cid,
+      </if>
+      <if test="typeId != null" >
+        type_id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="ruid != null" >
+        ruid,
+      </if>
+      <if test="stime != null" >
+        stime,
+      </if>
+      <if test="etime != null" >
+        etime,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="cuid != null" >
+        cuid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="cagent != null" >
+        #{cagent,jdbcType=VARCHAR},
+      </if>
+      <if test="cid != null" >
+        #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="typeId != null" >
+        #{typeId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=BIT},
+      </if>
+      <if test="ruid != null" >
+        #{ruid,jdbcType=VARCHAR},
+      </if>
+      <if test="stime != null" >
+        #{stime,jdbcType=BIGINT},
+      </if>
+      <if test="etime != null" >
+        #{etime,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="cuid != null" >
+        #{cuid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cn.tianxia.admin.project.txdata.Activity" >
+    update t_activity
+    <set >
+      <if test="cagent != null" >
+        cagent = #{cagent,jdbcType=VARCHAR},
+      </if>
+      <if test="cid != null" >
+        cid = #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="typeId != null" >
+        type_id = #{typeId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=BIT},
+      </if>
+      <if test="ruid != null" >
+        ruid = #{ruid,jdbcType=VARCHAR},
+      </if>
+      <if test="stime != null" >
+        stime = #{stime,jdbcType=BIGINT},
+      </if>
+      <if test="etime != null" >
+        etime = #{etime,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="cuid != null" >
+        cuid = #{cuid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cn.tianxia.admin.project.txdata.Activity" >
+    update t_activity
+    set cagent = #{cagent,jdbcType=VARCHAR},
+      cid = #{cid,jdbcType=INTEGER},
+      type_id = #{typeId,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      type = #{type,jdbcType=TINYINT},
+      status = #{status,jdbcType=BIT},
+      ruid = #{ruid,jdbcType=VARCHAR},
+      stime = #{stime,jdbcType=BIGINT},
+      etime = #{etime,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=BIGINT},
+      cuid = #{cuid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectAllGGLByPage" resultType="com.cn.tianxia.admin.po.GGLActivityPO" parameterType="com.cn.tianxia.admin.common.Pager">
+    SELECT
+    a.id, a.cagent, a.cid, a.name, a.status,a.create_time as createTime,
+    a.update_time as updateTime,b.minquota,b.maxquota,b.user_money as userMoney,
+    b.type,a.ruid updateName ,a.cuid as createName,b.description as description
+    FROM t_activity a LEFT JOIN t_guaguale_activity b ON a.id=b.activity_id
+    WHERE 1=1
+    <if test="cagent != null and cagent !=''  ">
+      AND a.cagent=#{cagent}
+    </if>
+    <if test="updateStatus != null and updateStatus!='' ">
+      AND a.status=#{updateStatus}
+    </if>
+    <if test="cid != null and cid !='' ">
+      and a.cid = #{cid}
+    </if>
+    <if test="id != null and id !='' ">
+      and a.id = #{id}
+    </if>
+    ORDER BY a.create_time DESC LIMIT #{from},#{pageSize}
+  </select>
+  <select id="selectGGLTotalCount" resultType="java.lang.Integer" parameterType="com.cn.tianxia.admin.common.Pager" >
+    select
+    count(1)
+    FROM t_activity a LEFT JOIN t_guaguale_activity b ON a.id=b.activity_id
+    WHERE 1=1
+    <if test="cagent != null and cagent !=''  ">
+      AND a.cagent=#{cagent}
+    </if>
+    <if test="updateStatus != null and updateStatus!='' ">
+      AND a.status=#{updateStatus}
+    </if>
+    <if test="cid != null and cid !='' ">
+      and a.cid = #{cid}
+    </if>
+    <if test="id != null and id !='' ">
+      and a.id = #{id}
+    </if>
+  </select>
+</mapper>
